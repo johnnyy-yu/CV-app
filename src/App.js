@@ -60,7 +60,7 @@ class App extends Component {
     } else if (e.target.id === "lastName") {
       name.lastName = e.target.value;
     } else {
-      general[`${e.target.id}`] = e.target.value;
+      general[e.target.id] = e.target.value;
     }
 
     this.setState(state);
@@ -76,7 +76,7 @@ class App extends Component {
     } else if (e.target.id === "eduFrom") {
       graduation.eduFrom = e.target.value;
     } else {
-      university[`${e.target.id}`] = e.target.value;
+      university[e.target.id] = e.target.value;
     }
 
     this.setState(state);
@@ -112,7 +112,7 @@ class App extends Component {
     } else if (e.target.id === "from") {
       time.from = e.target.value;
     } else {
-      experience[`${e.target.id}`] = e.target.value;
+      experience[e.target.id] = e.target.value;
     }
 
     this.setState(state);
@@ -149,7 +149,6 @@ class App extends Component {
     }
   };
 
-  // TODO Warning if fields left blank (time inputs)
   add = (param) => {
     const { education, university, experiences, experience } = this.state;
 
@@ -187,8 +186,9 @@ class App extends Component {
 
   remove = (param, key) => {
     const state = { ...this.state };
+    const params = state[param];
 
-    state[`${param}`] = state.education.filter((edu) => edu.id !== key);
+    state[param] = params.filter((elem) => elem.id !== key);
 
     this.setState(state);
   };
