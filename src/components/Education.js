@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import EducationOverview from "./EducationOverview";
 
 class Education extends Component {
   constructor(props) {
@@ -6,19 +7,22 @@ class Education extends Component {
   }
 
   render() {
-    const { change } = this.props;
+    const { change, edit, remove, education, university } = this.props;
+    const { graduation } = university;
 
     return (
       <div className="education">
-        <label htmlFor="educationInput">
-          Education Information
+        Education Information:
+        <EducationOverview education={education} edit={edit} remove={remove} />
+        <div className="educationInput">
           <label htmlFor="university">
             University:
             <input
+              onChange={change}
               type="text"
               className="edu"
               id="university"
-              onChange={change}
+              value={university.university}
             />
           </label>
           <label htmlFor="location">
@@ -27,12 +31,19 @@ class Education extends Component {
               type="text"
               className="edu"
               id="eduLocation"
+              value={university.eduLocation}
               onChange={change}
             />
           </label>
           <label htmlFor="degree">
             Degree:
-            <input type="text" className="edu" id="degree" onChange={change} />
+            <input
+              type="text"
+              className="edu"
+              id="degree"
+              value={university.degree}
+              onChange={change}
+            />
           </label>
           <label htmlFor="graduation">
             Graduation:
@@ -42,6 +53,7 @@ class Education extends Component {
                 type="month"
                 className="edu"
                 id="eduFrom"
+                value={graduation.eduFrom}
                 onChange={change}
               />
             </label>
@@ -51,11 +63,13 @@ class Education extends Component {
                 type="month"
                 className="edu"
                 id="eduTo"
+                value={graduation.eduTo}
                 onChange={change}
+                required
               />
             </label>
           </label>
-        </label>
+        </div>
       </div>
     );
   }

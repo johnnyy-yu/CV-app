@@ -6,34 +6,68 @@ class General extends Component {
   }
 
   render() {
-    const { change } = this.props;
+    const { change, general } = this.props;
+    const { name } = general;
 
     return (
       <div className="general">
-        General Information
-        <label htmlFor="firstName">
-          First Name:
-          <input type="text" id="firstName" onChange={change} />
-        </label>
-        <label htmlFor="lastName">
-          Last Name:
-          <input type="text" id="lastName" onChange={change} />
-        </label>
-        <label htmlFor="address">
-          Address:
-          <input type="text" id="address" onChange={change} />
-        </label>
-        <label htmlFor="email">
-          Email:
-          <input type="email" id="email" onChange={change} />
-        </label>
+        General Information:
+        <div className="generalInput">
+          <label htmlFor="firstName">
+            First Name:
+            <input
+              type="text"
+              className="genInfo"
+              id="firstName"
+              value={name.firstName}
+              onChange={change}
+            />
+          </label>
+          <label htmlFor="lastName">
+            Last Name:
+            <input
+              type="text"
+              className="genInfo"
+              id="lastName"
+              value={name.lastName}
+              onChange={change}
+            />
+          </label>
+          <label htmlFor="address">
+            Address:
+            <input
+              type="text"
+              className="genInfo"
+              id="address"
+              value={general.address}
+              onChange={change}
+            />
+          </label>
+          <label htmlFor="phone">
+            Phone Number:
+            <input
+              type="tel"
+              id="phone"
+              className="genInfo"
+              placeholder="123-456-7890"
+              value={general.phone}
+              onChange={change}
+            />
+          </label>
+          <label htmlFor="email">
+            Email:
+            <input
+              type="email"
+              className="genInfo"
+              id="email"
+              value={general.email}
+              onChange={change}
+            />
+          </label>
+        </div>
       </div>
     );
   }
 }
-
-// const General = (props) => {
-//   const { change } = props
-// }
 
 export default General;
