@@ -1,6 +1,10 @@
 import React, { Component } from "react";
+import PreviewGeneral from "./Preview/PreviewGeneral";
+import PreviewSkills from "./Preview/PreviewSkills";
+import PreviewEdu from "./Preview/PreviewEdu";
+import PreviewExp from "./Preview/PreviewExp";
+import PreviewAwards from "./Preview/PreviewAwards";
 
-// TODO Implement preview
 class Preview extends Component {
   constructor(props) {
     super(props);
@@ -9,8 +13,12 @@ class Preview extends Component {
   render() {
     const { state } = this.props;
     return (
-      <div>
-        <div />
+      <div className="preview">
+        <PreviewGeneral general={state.general} />
+        <PreviewSkills skills={state.skills} />
+        <PreviewEdu education={state.education} />
+        <PreviewExp experiences={state.experiences} />
+        <PreviewAwards awards={state.awards} />
       </div>
     );
   }

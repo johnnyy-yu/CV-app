@@ -8,7 +8,6 @@ class Education extends Component {
 
   render() {
     const { change, edit, remove, education, university } = this.props;
-    const { graduation } = university;
 
     return (
       <div className="education">
@@ -48,24 +47,12 @@ class Education extends Component {
           <label htmlFor="graduation">
             Graduation:
             <label htmlFor="from" id="graduation">
-              From:
               <input
                 type="month"
                 className="edu"
-                id="eduFrom"
-                value={graduation.eduFrom}
+                id="graduation"
+                value={university.graduation}
                 onChange={change}
-              />
-            </label>
-            <label htmlFor="to" id="graduation">
-              To:
-              <input
-                type="month"
-                className="edu"
-                id="eduTo"
-                value={graduation.eduTo}
-                onChange={change}
-                required
               />
             </label>
           </label>

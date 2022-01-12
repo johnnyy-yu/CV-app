@@ -20,6 +20,8 @@ class App extends Component {
         address: "",
         phone: "",
         email: "",
+        linkedin: "",
+        intro: "",
       },
 
       education: [],
@@ -28,10 +30,7 @@ class App extends Component {
         university: "",
         eduLocation: "",
         degree: "",
-        graduation: {
-          eduFrom: "",
-          eduTo: "",
-        },
+        graduation: "",
       },
       experiences: [],
       experience: {
@@ -69,15 +68,8 @@ class App extends Component {
   eduChanges = (e) => {
     const state = { ...this.state };
     const { university } = state;
-    const { graduation } = university;
 
-    if (e.target.id === "eduTo") {
-      graduation.eduTo = e.target.value;
-    } else if (e.target.id === "eduFrom") {
-      graduation.eduFrom = e.target.value;
-    } else {
-      university[e.target.id] = e.target.value;
-    }
+    university[e.target.id] = e.target.value;
 
     this.setState(state);
   };
@@ -92,8 +84,7 @@ class App extends Component {
         university.university = school.university;
         university.eduLocation = school.eduLocation;
         university.degree = school.degree;
-        university.graduation.eduFrom = school.graduation.eduFrom;
-        university.graduation.eduTo = school.graduation.eduTo;
+        university.graduation = school.graduation;
 
         state.education = state.education.filter((edu) => edu.id !== key);
       }
@@ -147,6 +138,8 @@ class App extends Component {
     } else if (e.target.id === "skills") {
       state.skills = e.target.value;
     }
+
+    this.setState(state);
   };
 
   add = (param) => {
@@ -160,10 +153,7 @@ class App extends Component {
           university: "",
           eduLocation: "",
           degree: "",
-          graduation: {
-            eduFrom: "",
-            eduTo: "",
-          },
+          graduation: "",
         },
       });
     } else if (param === "exp") {
@@ -247,7 +237,7 @@ class App extends Component {
         >
           Preview
         </button>
-        <div id="preview" state={this.state} />
+        <Preview state={this.state} />
       </div>
     );
   }

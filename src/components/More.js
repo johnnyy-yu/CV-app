@@ -13,11 +13,21 @@ class More extends Component {
         <div className="moreInput">
           <label htmlFor="award">
             Awards:
-            <input onChange={change} type="text" id="award" />
+            <input
+              onChange={change}
+              type="text"
+              placeholder="List awards, separated by commas"
+              id="awards"
+            />
           </label>
           <label htmlFor="skill">
             Skills:
-            <input onChange={change} type="text" id="skill" />
+            <input
+              onChange={change}
+              type="text"
+              placeholder="List skills, separated by commas"
+              id="skills"
+            />
           </label>
         </div>
       </div>

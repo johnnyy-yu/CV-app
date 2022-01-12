@@ -64,6 +64,14 @@ class General extends Component {
               onChange={change}
             />
           </label>
+          <label htmlFor="linkedin">
+            LinkedIn:
+            <input type="string" id="linkedin" onChange={change} />
+          </label>
+          <label htmlFor="intro">
+            Introduction:
+            <textarea id="intro" onChange={change} />
+          </label>
         </div>
       </div>
     );
