@@ -11,68 +11,69 @@ class General extends Component {
 
     return (
       <div className="general">
-        General Information:
         <div className="generalInput">
-          <label htmlFor="firstName">
-            First Name:
+          <label htmlFor="firstName" className="genInfo">
+            First Name
+            <br />
             <input
               type="text"
-              className="genInfo"
               id="firstName"
               value={name.firstName}
               onChange={change}
             />
           </label>
-          <label htmlFor="lastName">
-            Last Name:
+          <label htmlFor="lastName" className="genInfo">
+            Last Name
+            <br />
             <input
               type="text"
-              className="genInfo"
               id="lastName"
               value={name.lastName}
               onChange={change}
             />
           </label>
-          <label htmlFor="address">
-            Address:
+          <label htmlFor="address" className="genInfo">
+            Address
+            <br />
             <input
               type="text"
-              className="genInfo"
               id="address"
               value={general.address}
               onChange={change}
             />
           </label>
-          <label htmlFor="phone">
-            Phone Number:
+          <label htmlFor="phone" className="genInfo">
+            Phone
+            <br />
             <input
               type="tel"
               id="phone"
-              className="genInfo"
               placeholder="123-456-7890"
               value={general.phone}
               onChange={change}
             />
           </label>
-          <label htmlFor="email">
-            Email:
+          <label htmlFor="email" className="genInfo">
+            Email
+            <br />
             <input
               type="email"
-              className="genInfo"
               id="email"
               value={general.email}
               onChange={change}
             />
           </label>
-          <label htmlFor="linkedin">
-            LinkedIn:
+          <label htmlFor="linkedin" className="genInfo">
+            LinkedIn
+            <br />
             <input type="string" id="linkedin" onChange={change} />
           </label>
-          <label htmlFor="intro">
-            Introduction:
-            <textarea id="intro" onChange={change} />
-          </label>
         </div>
+        <label htmlFor="intro" className="area">
+          Introduction
+          <br />
+          <textarea id="intro" onChange={change} />
+        </label>
       </div>
     );
   }

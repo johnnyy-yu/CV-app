@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import EducationOverview from "./EducationOverview";
 
 class Education extends Component {
   constructor(props) {
@@ -7,25 +6,24 @@ class Education extends Component {
   }
 
   render() {
-    const { change, edit, remove, education, university } = this.props;
+    const { change, university, add } = this.props;
 
     return (
       <div className="education">
-        Education Information:
-        <EducationOverview education={education} edit={edit} remove={remove} />
         <div className="educationInput">
-          <label htmlFor="university">
-            University:
+          <label htmlFor="university" className="eduInfo">
+            University
+            <br />
             <input
               onChange={change}
               type="text"
-              className="edu"
               id="university"
               value={university.university}
             />
           </label>
-          <label htmlFor="location">
-            Location:
+          <label htmlFor="location" className="eduInfo">
+            Location
+            <br />
             <input
               type="text"
               className="edu"
@@ -34,8 +32,9 @@ class Education extends Component {
               onChange={change}
             />
           </label>
-          <label htmlFor="degree">
-            Degree:
+          <label htmlFor="degree" className="eduInfo">
+            Degree
+            <br />
             <input
               type="text"
               className="edu"
@@ -44,8 +43,9 @@ class Education extends Component {
               onChange={change}
             />
           </label>
-          <label htmlFor="graduation">
-            Graduation:
+          <label htmlFor="graduation" className="eduInfo">
+            Graduation
+            <br />
             <label htmlFor="from" id="graduation">
               <input
                 type="month"
@@ -57,6 +57,15 @@ class Education extends Component {
             </label>
           </label>
         </div>
+        <button
+          type="button"
+          className="add-button"
+          onClick={() => {
+            add("edu");
+          }}
+        >
+          Add
+        </button>
       </div>
     );
   }

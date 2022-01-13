@@ -1,38 +1,174 @@
-.App {
+.preview {
+  display: none;
+}
+
+html {
+  background-image: url("./img/zero-take-RAFkkUTvp6c-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+header {
+  color: white;
+  /* background-color: rgba(255, 255, 255, 0.8); */
   text-align: center;
+  font-size: 6em;
+  padding: 1%;
+  border-radius: 30px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input {
+  border: none;
+  border-radius: 10px;
+  min-height: 2rem;
+  /* padding: 0 4%; */
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main {
+  word-wrap: break-word;
+  display: flex;
+  height: 100vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.form {
+  padding: 5%;
+  width: 70%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 30px;
+  overflow: auto;
+}
+
+.general,
+.education,
+.experience,
+.more {
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: large;
+  border-radius: 22px;
+  padding: 2%;
+}
+
+.input-header {
+  font-weight: 400;
+  font-size: x-large;
+  text-decoration: underline;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.generalInput,
+.educationInput,
+.experienceInput,
+.moreInput {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 0 1%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.genInfo,
+.eduInfo,
+.expInfo,
+.moreInfo {
+  text-decoration: none;
+  flex: 1;
+  margin: 0 1%;
+}
+
+.general,
+.education,
+.experience,
+.more {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+textarea {
+  resize: none;
+  border: none;
+  min-height: 4rem;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+.area {
+  margin: 0 2%;
+}
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 30%;
+  overflow: auto;
+}
+
+.overview-header {
+  color: white;
+  text-decoration: underline;
+  font-weight: 300;
+  font-size: x-large;
+}
+
+.educationOverview,
+.experienceOverview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 5% 0;
+}
+
+li {
+  flex: 1;
+  list-style-type: none;
+  text-align: center;
+  width: 80%;
+  padding: 2%;
+  margin: 1%;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.add-button {
+  align-self: center;
+  text-align: center;
+  flex: 0;
+  width: 10%;
+  padding: 1%;
+  margin: 2% 0;
+  border: none;
+  border-radius: 6px;
+  background-color: white;
+}
+
+.add-button:hover,
+.edit-button:hover,
+.remove-button:hover {
+  background-color: rgba(241, 240, 240, 0.8);
+}
+
+.edit-button,
+.remove-button {
+  background-color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 1% 3%;
+  margin: 1%;
+}
+
+.preview-button {
+  border: none;
+  border-radius: 6px;
+  background-color: white;
+  padding:  2% 8%;
 }

@@ -9,10 +9,10 @@ class More extends Component {
     const { change } = this.props;
     return (
       <div className="more">
-        More Information:
         <div className="moreInput">
-          <label htmlFor="award">
-            Awards:
+          <label htmlFor="award" className="moreInfo">
+            Awards
+            <br />
             <input
               onChange={change}
               type="text"
@@ -20,8 +20,9 @@ class More extends Component {
               id="awards"
             />
           </label>
-          <label htmlFor="skill">
-            Skills:
+          <label htmlFor="skill" className="moreInfo">
+            Skills
+            <br />
             <input
               onChange={change}
               type="text"

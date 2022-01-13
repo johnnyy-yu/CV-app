@@ -6,20 +6,28 @@ function ExperienceOverview(props) {
 
   const experienceList = experiences.map((experience) => (
     <li key={experience.id}>
-      {experience.company} {experience.location} {experience.role}{" "}
-      {experience.description}{" "}
+      {experience.company}, {experience.location}
+      <br /> {experience.role} <br />
       {experience.time.from &&
         format(
           add(new Date(experience.time.from), { months: 1 }),
           "MMMM yyyy "
         )}
+      {" - "}
       {experience.time.to &&
         format(add(new Date(experience.time.to), { months: 1 }), "MMMM yyyy ")}
-      <button type="button" onClick={() => edit(experience.id)}>
+      <br />
+      {experience.description} <br />
+      <button
+        type="button"
+        className="edit-button"
+        onClick={() => edit(experience.id)}
+      >
         Edit
       </button>
       <button
         type="button"
+        className="remove-button"
         onClick={() => remove("experiences", experience.id)}
       >
         Remove
@@ -27,10 +35,15 @@ function ExperienceOverview(props) {
     </li>
   ));
 
-  return (
-    experiences.length > 0 && (
-      <div className="experienceOverview">{experienceList}</div>
-    )
+  return experiences.length > 0 ? (
+    <div className="experienceOverview">
+      <div className="overview-header">Experience</div>
+      {experienceList}
+    </div>
+  ) : (
+    <div className="experienceOverview">
+      <div className="overview-header">Experience</div>
+    </div>
   );
 }
 

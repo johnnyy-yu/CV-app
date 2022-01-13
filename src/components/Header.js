@@ -1,7 +1,7 @@
 import React from "react";
 
 function Header() {
-  return <header>CV Generator</header>;
+  return <header>Curriculum Vitae App</header>;
 }
 
 export default Header;

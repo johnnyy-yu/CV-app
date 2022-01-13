@@ -9,6 +9,8 @@ import Preview from "./components/Preview";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import More from "./components/More";
+import EducationOverview from "./components/EducationOverview";
+import ExperienceOverview from "./components/ExperienceOverview";
 
 class App extends Component {
   constructor() {
@@ -27,7 +29,7 @@ class App extends Component {
       education: [],
       university: {
         id: uniqid(),
-        university: "",
+        university: "UCLA",
         eduLocation: "",
         degree: "",
         graduation: "",
@@ -35,7 +37,7 @@ class App extends Component {
       experiences: [],
       experience: {
         id: uniqid(),
-        company: "",
+        company: "Google",
         location: "",
         role: "",
         description: "",
@@ -196,48 +198,47 @@ class App extends Component {
 
     return (
       <div className="main">
-        <Header />
-        <General change={this.generalChanges} general={general} />
-        <Education
-          change={this.eduChanges}
-          edit={this.editEdu}
-          remove={this.remove}
-          education={education}
-          university={university}
-        />
-        <button
-          type="button"
-          onClick={() => {
-            this.add("edu");
-          }}
-        >
-          +
-        </button>
-        <Experience
-          change={this.expChanges}
-          edit={this.editExp}
-          remove={this.remove}
-          experiences={experiences}
-          experience={experience}
-        />
-        <button
-          type="button"
-          onClick={() => {
-            this.add("exp");
-          }}
-        >
-          +
-        </button>
-        <More change={this.moreChanges} awards={awards} skills={skills} />
-        <button
-          type="button"
-          onClick={() => {
-            <Preview />;
-          }}
-        >
-          Preview
-        </button>
-        <Preview state={this.state} />
+        <div className="form">
+          <Header />
+          <div className="input-header">General Information</div>
+          <General change={this.generalChanges} general={general} />
+          <div className="input-header">Education Information</div>
+          <Education
+            change={this.eduChanges}
+            university={university}
+            add={this.add}
+          />
+          <div className="input-header">Experience Information</div>
+          <Experience
+            change={this.expChanges}
+            experience={experience}
+            add={this.add}
+          />
+          <div className="input-header">More Information</div>
+          <More change={this.moreChanges} awards={awards} skills={skills} />
+          <Preview state={this.state} />
+        </div>
+        <div className="overview">
+          <EducationOverview
+            education={education}
+            edit={this.editEdu}
+            remove={this.remove}
+          />
+          <ExperienceOverview
+            experiences={experiences}
+            edit={this.editExp}
+            remove={this.remove}
+          />
+          <button
+            type="button"
+            className="preview-button"
+            onClick={() => {
+              <Preview />;
+            }}
+          >
+            Preview
+          </button>
+        </div>
       </div>
     );
   }
