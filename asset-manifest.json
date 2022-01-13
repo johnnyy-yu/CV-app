@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/react-gh-pages/static/css/main.4b26692c.css",
+    "main.js": "/react-gh-pages/static/js/main.d445a5ea.js",
+    "static/media/zero-take-RAFkkUTvp6c-unsplash.jpg": "/react-gh-pages/static/media/zero-take-RAFkkUTvp6c-unsplash.04b329ac851bb2cde950.jpg",
+    "index.html": "/react-gh-pages/index.html",
+    "main.4b26692c.css.map": "/react-gh-pages/static/css/main.4b26692c.css.map",
+    "main.d445a5ea.js.map": "/react-gh-pages/static/js/main.d445a5ea.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4b26692c.css",
+    "static/js/main.d445a5ea.js"
+  ]
+}
