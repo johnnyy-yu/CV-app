@@ -1,17 +1,14 @@
-.preview {
-  display: none;
-}
 
 html {
   background-image: url("./img/zero-take-RAFkkUTvp6c-unsplash.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
+  height: 100%;
 }
 
 header {
   color: white;
-  /* background-color: rgba(255, 255, 255, 0.8); */
   text-align: center;
   font-size: 6em;
   padding: 1%;
@@ -153,7 +150,8 @@ li {
 
 .add-button:hover,
 .edit-button:hover,
-.remove-button:hover {
+.remove-button:hover,
+.preview-button:hover {
   background-color: rgba(241, 240, 240, 0.8);
 }
 

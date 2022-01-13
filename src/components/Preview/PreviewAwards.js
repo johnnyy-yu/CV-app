@@ -11,9 +11,11 @@ export default class PreviewAwards extends Component {
 
     return (
       <div>
-        <ul>
+        <ul className="awards-container">
           {array.map((award) => (
-            <li key={uniqid()}>{award}</li>
+            <li className="awards" key={uniqid()}>
+              {award}
+            </li>
           ))}
         </ul>
       </div>
@@ -25,7 +27,9 @@ export default class PreviewAwards extends Component {
 
     return (
       awards.length > 0 && (
-        <div className="preview-awards">Awards {this.awards(awards)}</div>
+        <div className="preview-awards">
+          <div className="preview-header">AWARDS</div> {this.awards(awards)}
+        </div>
       )
     );
   }

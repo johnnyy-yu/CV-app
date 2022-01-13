@@ -9,7 +9,7 @@ export default class PreviewExp extends Component {
   experiences = (experiences) => (
     <div>
       {experiences.map((experience) => (
-        <div key={experience.id} className={experience.company}>
+        <div key={experience.id} className="experience-container">
           <div className="role">{experience.role}</div>
           <div className="company">{experience.company}</div>
           <div className="time">
@@ -17,7 +17,8 @@ export default class PreviewExp extends Component {
               format(
                 add(new Date(experience.time.from), { months: 1 }),
                 "MMMM yyyy "
-              )}{" "}
+              )}
+            {" - "}
             {experience.time.to &&
               format(
                 add(new Date(experience.time.to), { months: 1 }),
@@ -36,7 +37,8 @@ export default class PreviewExp extends Component {
     return (
       experiences.length > 0 && (
         <div className="preview-experience">
-          Experience {this.experiences(experiences)}
+          <div className="preview-header">EXPERIENCE</div>{" "}
+          {this.experiences(experiences)}
         </div>
       )
     );

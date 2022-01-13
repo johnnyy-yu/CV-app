@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import PreviewGeneral from "./Preview/PreviewGeneral";
 import PreviewSkills from "./Preview/PreviewSkills";
 import PreviewEdu from "./Preview/PreviewEdu";
@@ -13,12 +14,20 @@ class Preview extends Component {
   render() {
     const { state } = this.props;
     return (
-      <div className="preview">
+      <div id="preview">
+        <button
+          type="button"
+          onClick={() => {
+            document.getElementById("preview").style.display = "none";
+          }}
+        >
+          x
+        </button>
         <PreviewGeneral general={state.general} />
         <PreviewSkills skills={state.skills} />
+        <PreviewAwards awards={state.awards} />
         <PreviewEdu education={state.education} />
         <PreviewExp experiences={state.experiences} />
-        <PreviewAwards awards={state.awards} />
       </div>
     );
   }

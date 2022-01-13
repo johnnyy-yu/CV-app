@@ -1,0 +1,110 @@
+
+#preview {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  height: 100%;
+  width: 100%;
+  color: white;
+  background-color: white;
+  font-size: 16px;
+  overflow: auto;
+}
+
+.preview-general {
+  background-color: #2f4e8b;
+  margin: 0 0 2%;
+}
+
+.name {
+  font-size: 58px;
+  padding: 2%;
+}
+
+.general-intro {
+  margin-bottom: 1%;
+  margin: 0 2% 2%;
+}
+
+.general-info {
+  background-color: #273f6e;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px 0;
+}
+
+.gen-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.icons {
+  width: 24px;
+}
+
+.preview-skills,
+.preview-awards,
+.preview-education,
+.preview-experience {
+  margin: 0 2%;
+  width: 96%;
+}
+
+.skills-container,
+.skill,
+.awards-container,
+.awards {
+  display: inline-block;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.preview-header {
+  color: #535c85;
+  font-size: 30px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.skill,
+.awards {
+  border-radius: 4px;
+  background-color: #2f4e8b;
+  width: fit-content;
+  padding: 5px 10px;
+  margin: 8px;
+}
+
+.preview-education,
+.preview-experience {
+  color: black;
+}
+
+.preview-education,
+.university-container {
+  display: inline-block;
+}
+.awards-container,
+.skills-container,
+.university-container,
+.experience-container {
+  margin: 2%;
+}
+
+.university-degree-graduation,
+.role {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.company {
+  font-weight: 500;
+}
+
+.time {
+  font-weight: 400;
+  color: #2f4e8b
+}

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import uniqid from "uniqid";
 
 import "./App.css";
+import "./Preview.css";
 
 import Header from "./components/Header";
 import General from "./components/General";
@@ -29,7 +30,7 @@ class App extends Component {
       education: [],
       university: {
         id: uniqid(),
-        university: "UCLA",
+        university: "",
         eduLocation: "",
         degree: "",
         graduation: "",
@@ -37,7 +38,7 @@ class App extends Component {
       experiences: [],
       experience: {
         id: uniqid(),
-        company: "Google",
+        company: "",
         location: "",
         role: "",
         description: "",
@@ -233,7 +234,7 @@ class App extends Component {
             type="button"
             className="preview-button"
             onClick={() => {
-              <Preview />;
+              document.getElementById("preview").style.display = "block";
             }}
           >
             Preview

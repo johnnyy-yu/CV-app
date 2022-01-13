@@ -10,13 +10,13 @@ export default class PreviewSkills extends Component {
     const array = skills.split(",");
 
     return (
-      <div>
-        <ul>
-          {array.map((element) => (
-            <li key={uniqid()}>{element}</li>
-          ))}
-        </ul>
-      </div>
+      <ul className="skills-container">
+        {array.map((element) => (
+          <li className="skill" key={uniqid()}>
+            {element}
+          </li>
+        ))}
+      </ul>
     );
   };
 
@@ -25,7 +25,10 @@ export default class PreviewSkills extends Component {
 
     return (
       skills.length > 0 && (
-        <div className="preview-skills">Skills {this.skills(skills)}</div>
+        <div className="preview-skills">
+          <div className="preview-header">AREAS OF EXPERTISE</div>{" "}
+          {this.skills(skills)}
+        </div>
       )
     );
   }
