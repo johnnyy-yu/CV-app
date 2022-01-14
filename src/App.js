@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import uniqid from "uniqid";
 
 import "./App.css";
@@ -13,48 +13,44 @@ import More from "./components/More";
 import EducationOverview from "./components/EducationOverview";
 import ExperienceOverview from "./components/ExperienceOverview";
 
-class App extends Component {
-  constructor() {
-    super();
+function App() {
+  const [state, setState] = useState({
+    general: {
+      name: { firstName: "", lastName: "" },
+      address: "",
+      phone: "",
+      email: "",
+      linkedin: "",
+      intro: "",
+    },
 
-    this.state = {
-      general: {
-        name: { firstName: "", lastName: "" },
-        address: "",
-        phone: "",
-        email: "",
-        linkedin: "",
-        intro: "",
+    education: [],
+    university: {
+      id: uniqid(),
+      university: "",
+      eduLocation: "",
+      degree: "",
+      graduation: "",
+    },
+    experiences: [],
+    experience: {
+      id: uniqid(),
+      company: "",
+      location: "",
+      role: "",
+      description: "",
+      time: {
+        from: "",
+        to: "",
       },
+    },
+    awards: "",
+    skills: "",
+  });
 
-      education: [],
-      university: {
-        id: uniqid(),
-        university: "",
-        eduLocation: "",
-        degree: "",
-        graduation: "",
-      },
-      experiences: [],
-      experience: {
-        id: uniqid(),
-        company: "",
-        location: "",
-        role: "",
-        description: "",
-        time: {
-          from: "",
-          to: "",
-        },
-      },
-      awards: "",
-      skills: "",
-    };
-  }
-
-  generalChanges = (e) => {
-    const state = { ...this.state };
-    const { general } = state;
+  const generalChanges = (e) => {
+    const thisState = { ...state };
+    const { general } = thisState;
     const { name } = general;
 
     if (e.target.id === "firstName") {
@@ -65,23 +61,24 @@ class App extends Component {
       general[e.target.id] = e.target.value;
     }
 
-    this.setState(state);
+    setState(thisState);
   };
 
-  eduChanges = (e) => {
-    const state = { ...this.state };
-    const { university } = state;
+  const eduChanges = (e) => {
+    const thisState = { ...state };
+    const { university } = thisState;
 
     university[e.target.id] = e.target.value;
+    console.log(thisState);
 
-    this.setState(state);
+    setState(thisState);
   };
 
-  editEdu = (key) => {
-    const state = { ...this.state };
-    const { university } = state;
+  const editEdu = (key) => {
+    const thisState = { ...state };
+    const { university } = thisState;
 
-    state.education.forEach((school) => {
+    thisState.education.forEach((school) => {
       if (school.id === key) {
         university.id = school.id;
         university.university = school.university;
@@ -89,16 +86,18 @@ class App extends Component {
         university.degree = school.degree;
         university.graduation = school.graduation;
 
-        state.education = state.education.filter((edu) => edu.id !== key);
+        thisState.education = thisState.education.filter(
+          (edu) => edu.id !== key
+        );
       }
 
-      this.setState(state);
+      setState(thisState);
     });
   };
 
-  expChanges = (e) => {
-    const state = { ...this.state };
-    const { experience } = state;
+  const expChanges = (e) => {
+    const thisState = { ...state };
+    const { experience } = thisState;
     const { time } = experience;
 
     if (e.target.id === "to") {
@@ -109,14 +108,14 @@ class App extends Component {
       experience[e.target.id] = e.target.value;
     }
 
-    this.setState(state);
+    setState(thisState);
   };
 
-  editExp = (key) => {
-    const state = { ...this.state };
-    const { experience } = state;
+  const editExp = (key) => {
+    const thisState = { ...state };
+    const { experience } = thisState;
 
-    state.experiences.forEach((exp) => {
+    thisState.experiences.forEach((exp) => {
       if (exp.id === key) {
         experience.id = exp.id;
         experience.company = exp.company;
@@ -126,123 +125,115 @@ class App extends Component {
         experience.time.from = exp.time.from;
         experience.time.to = exp.time.to;
 
-        state.experiences = state.experiences.filter((work) => work.id !== key);
+        thisState.experiences = thisState.experiences.filter(
+          (work) => work.id !== key
+        );
       }
 
-      this.setState(state);
+      setState(thisState);
     });
   };
 
-  moreChanges = (e) => {
-    const state = { ...this.state };
+  const moreChanges = (e) => {
+    const thisState = { ...state };
 
     if (e.target.id === "awards") {
-      state.awards = e.target.value;
+      thisState.awards = e.target.value;
     } else if (e.target.id === "skills") {
-      state.skills = e.target.value;
+      thisState.skills = e.target.value;
     }
 
-    this.setState(state);
+    setState(thisState);
   };
 
-  add = (param) => {
-    const { education, university, experiences, experience } = this.state;
+  const add = (param) => {
+    const thisState = { ...state };
 
     if (param === "edu") {
-      this.setState({
-        education: education.concat(university),
-        university: {
-          id: uniqid(),
-          university: "",
-          eduLocation: "",
-          degree: "",
-          graduation: "",
-        },
-      });
+      thisState.education.push(thisState.university);
+      thisState.university = {
+        id: uniqid(),
+        university: "",
+        eduLocation: "",
+        degree: "",
+        graduation: "",
+      };
     } else if (param === "exp") {
-      this.setState({
-        experiences: experiences.concat(experience),
-        experience: {
-          id: uniqid(),
-          company: "",
-          location: "",
-          role: "",
-          description: "",
-          time: {
-            from: "",
-            to: "",
-          },
+      thisState.experiences.push(thisState.experience);
+      thisState.experience = {
+        id: uniqid(),
+        company: "",
+        location: "",
+        role: "",
+        description: "",
+        time: {
+          from: "",
+          to: "",
         },
-      });
+      };
     }
+
+    setState(thisState);
   };
 
-  remove = (param, key) => {
-    const state = { ...this.state };
-    const params = state[param];
+  const remove = (param, key) => {
+    const thisState = { ...state };
+    const params = thisState[param];
 
-    state[param] = params.filter((elem) => elem.id !== key);
+    thisState[param] = params.filter((elem) => elem.id !== key);
 
-    this.setState(state);
+    setState(thisState);
   };
 
-  render() {
-    const {
-      general,
-      education,
-      university,
-      experiences,
-      experience,
-      awards,
-      skills,
-    } = this.state;
-
-    return (
-      <div className="main">
-        <div className="form">
-          <Header />
-          <div className="input-header">General Information</div>
-          <General change={this.generalChanges} general={general} />
-          <div className="input-header">Education Information</div>
-          <Education
-            change={this.eduChanges}
-            university={university}
-            add={this.add}
-          />
-          <div className="input-header">Experience Information</div>
-          <Experience
-            change={this.expChanges}
-            experience={experience}
-            add={this.add}
-          />
-          <div className="input-header">More Information</div>
-          <More change={this.moreChanges} awards={awards} skills={skills} />
-          <Preview state={this.state} />
-        </div>
-        <div className="overview">
-          <EducationOverview
-            education={education}
-            edit={this.editEdu}
-            remove={this.remove}
-          />
-          <ExperienceOverview
-            experiences={experiences}
-            edit={this.editExp}
-            remove={this.remove}
-          />
-          <button
-            type="button"
-            className="preview-button"
-            onClick={() => {
-              document.getElementById("preview").style.display = "block";
-            }}
-          >
-            Preview
-          </button>
-        </div>
+  return (
+    <div className="main">
+      <div className="form">
+        <Header />
+        <div className="input-header">General Information</div>
+        <General change={generalChanges} general={state.general} />
+        <div className="input-header">Education Information</div>
+        <Education
+          change={eduChanges}
+          university={state.university}
+          add={add}
+        />
+        <div className="input-header">Experience Information</div>
+        <Experience
+          change={expChanges}
+          experience={state.experience}
+          add={add}
+        />
+        <div className="input-header">More Information</div>
+        <More
+          change={moreChanges}
+          awards={state.awards}
+          skills={state.skills}
+        />
+        <Preview state={state} />
       </div>
-    );
-  }
+      <div className="overview">
+        <EducationOverview
+          education={state.education}
+          edit={editEdu}
+          remove={remove}
+        />
+        <ExperienceOverview
+          experiences={state.experiences}
+          edit={editExp}
+          remove={remove}
+        />
+        <button
+          type="button"
+          className="preview-button"
+          onClick={() => {
+            document.getElementById("preview").style.display = "block";
+          }}
+        >
+          Preview
+        </button>
+      </div>
+    </div>
+  );
 }
 
 export default App;

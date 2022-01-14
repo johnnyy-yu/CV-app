@@ -1,12 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import { format, add } from "date-fns";
 
-export default class PreviewExp extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  experiences = (experiences) => (
+export default function PreviewExp(props) {
+  const experiencesMap = (experiences) => (
     <div>
       {experiences.map((experience) => (
         <div key={experience.id} className="experience-container">
@@ -31,16 +27,14 @@ export default class PreviewExp extends Component {
     </div>
   );
 
-  render() {
-    const { experiences } = this.props;
+  const { experiences } = props;
 
-    return (
-      experiences.length > 0 && (
-        <div className="preview-experience">
-          <div className="preview-header">EXPERIENCE</div>{" "}
-          {this.experiences(experiences)}
-        </div>
-      )
-    );
-  }
+  return (
+    experiences.length > 0 && (
+      <div className="preview-experience">
+        <div className="preview-header">EXPERIENCE</div>{" "}
+        {experiencesMap(experiences)}
+      </div>
+    )
+  );
 }

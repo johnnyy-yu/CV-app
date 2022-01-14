@@ -1,12 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import uniqid from "uniqid";
 
-export default class PreviewSkills extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  skills = (skills) => {
+export default function PreviewSkills(props) {
+  const skillsMap = (skills) => {
     const array = skills.split(",");
 
     return (
@@ -20,16 +16,14 @@ export default class PreviewSkills extends Component {
     );
   };
 
-  render() {
-    const { skills } = this.props;
+  const { skills } = props;
 
-    return (
-      skills.length > 0 && (
-        <div className="preview-skills">
-          <div className="preview-header">AREAS OF EXPERTISE</div>{" "}
-          {this.skills(skills)}
-        </div>
-      )
-    );
-  }
+  return (
+    skills.length > 0 && (
+      <div className="preview-skills">
+        <div className="preview-header">AREAS OF EXPERTISE</div>{" "}
+        {skillsMap(skills)}
+      </div>
+    )
+  );
 }

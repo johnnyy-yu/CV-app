@@ -1,11 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class PreviewEdu extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  education = (education) => (
+export default function PreviewEdu(props) {
+  const educationMap = (education) => (
     <div>
       {education.map((university) => (
         <div key={university.id} className="university-container">
@@ -20,16 +16,14 @@ export default class PreviewEdu extends Component {
     </div>
   );
 
-  render() {
-    const { education } = this.props;
+  const { education } = props;
 
-    return (
-      education.length > 0 && (
-        <div className="preview-education">
-          <div className="preview-header">EDUCATION</div>{" "}
-          {this.education(education)}
-        </div>
-      )
-    );
-  }
+  return (
+    education.length > 0 && (
+      <div className="preview-education">
+        <div className="preview-header">EDUCATION</div>{" "}
+        {educationMap(education)}
+      </div>
+    )
+  );
 }

@@ -1,12 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import uniqid from "uniqid";
 
-export default class PreviewAwards extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  awards = (awards) => {
+export default function PreviewAwards(props) {
+  const awardsMap = (awards) => {
     const array = awards.split(",");
 
     return (
@@ -22,15 +18,13 @@ export default class PreviewAwards extends Component {
     );
   };
 
-  render() {
-    const { awards } = this.props;
+  const { awards } = props;
 
-    return (
-      awards.length > 0 && (
-        <div className="preview-awards">
-          <div className="preview-header">AWARDS</div> {this.awards(awards)}
-        </div>
-      )
-    );
-  }
+  return (
+    awards.length > 0 && (
+      <div className="preview-awards">
+        <div className="preview-header">AWARDS</div> {awardsMap(awards)}
+      </div>
+    )
+  );
 }
