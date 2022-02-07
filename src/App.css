@@ -1,72 +1,85 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
 
 html {
-  background-image: url("./img/zero-take-RAFkkUTvp6c-unsplash.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  color: black;
   overflow: hidden;
   height: 100%;
 }
 
 header {
-  color: white;
-  text-align: center;
-  font-size: 6em;
-  padding: 1%;
-  border-radius: 30px;
+  background-color: rgba(226, 224, 224, 0.253);
+  color: black;
+  padding: 10px;
+  box-shadow: 1px 1px 10px silver;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header img {
+  max-width: 20px;
 }
 
 input {
+  background-color: rgba(226, 224, 224, 0.253);
   border: none;
   border-radius: 10px;
-  min-height: 2rem;
-  /* padding: 0 4%; */
+  padding: 4px 10px;
+  margin-top : 4px;
   width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
 }
 
-.main {
+.content {
   word-wrap: break-word;
-  display: flex;
-  height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(500px, 4fr) minmax(300px, 1fr);
 }
 
 .form {
-  padding: 5%;
-  width: 70%;
   display: flex;
   flex-direction: column;
   gap: 30px;
   overflow: auto;
+  height: calc(100vh - 40px);
+  padding: 20px;
 }
 
-.general,
-.education,
-.experience,
-.more {
-  background-color: rgba(255, 255, 255, 0.8);
-  font-size: large;
-  border-radius: 22px;
-  padding: 2%;
+.generalInput {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+  gap: 20px;
+}
+
+.educationInput {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+  gap: 20px;
+}
+
+.experienceInput {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+  gap: 20px;
+}
+
+.moreInput {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
 }
 
 .input-header {
-  font-weight: 400;
+  font-weight: 300;
   font-size: x-large;
-  text-decoration: underline;
-  color: white;
+  color: black;
 }
 
-.generalInput,
-.educationInput,
-.experienceInput,
-.moreInput {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  margin: 0 1%;
-}
 
 .genInfo,
 .eduInfo,
@@ -74,7 +87,6 @@ input {
 .moreInfo {
   text-decoration: none;
   flex: 1;
-  margin: 0 1%;
 }
 
 .general,
@@ -84,6 +96,9 @@ input {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 16px;
+  margin: 10px 0 0 20px;
+  box-shadow: 0px 2px 6px silver;
 }
 
 textarea {
@@ -91,27 +106,25 @@ textarea {
   border: none;
   min-height: 4rem;
   width: 100%;
+  background-color: rgba(226, 224, 224, 0.253);
+  border-radius: 10px;
+  margin-top: 6px;
+  padding: 4px 10px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-}
-
-.area {
-  margin: 0 2%;
 }
 
 .overview {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
-  width: 30%;
+  height: calc(100vh - 40px);
   overflow: auto;
+  box-shadow: 0px 11px 30px -10px #ccc, 0px -11px 8px -30px white;
 }
 
 .overview-header {
-  color: white;
-  text-decoration: underline;
   font-weight: 300;
   font-size: x-large;
 }
@@ -122,7 +135,8 @@ textarea {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 5% 0;
+  gap: 10px;
+  padding: 20px 0;
 }
 
 li {
@@ -130,29 +144,19 @@ li {
   list-style-type: none;
   text-align: center;
   width: 80%;
-  padding: 2%;
-  margin: 1%;
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(226, 224, 224, 0.253);
 }
 
 .add-button {
   align-self: center;
   text-align: center;
-  flex: 0;
-  width: 10%;
-  padding: 1%;
-  margin: 2% 0;
+  padding: 6px 40px;
   border: none;
   border-radius: 6px;
-  background-color: white;
-}
-
-.add-button:hover,
-.edit-button:hover,
-.remove-button:hover,
-.preview-button:hover {
   background-color: rgba(241, 240, 240, 0.8);
+  cursor: pointer;
 }
 
 .edit-button,
@@ -160,13 +164,16 @@ li {
   background-color: white;
   border: none;
   border-radius: 6px;
-  padding: 1% 3%;
-  margin: 1%;
+  padding: 4px 10px;
+  margin: 6px;
+  cursor: pointer;
 }
 
 .preview-button {
   border: none;
   border-radius: 6px;
-  background-color: white;
-  padding:  2% 8%;
+  background-color: rgba(241, 240, 240, 0.445);
+  padding:  6px 28px;
+  margin-bottom: 20px;
+  cursor: pointer;
 }

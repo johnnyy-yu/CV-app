@@ -69,7 +69,6 @@ function App() {
     const { university } = thisState;
 
     university[e.target.id] = e.target.value;
-    console.log(thisState);
 
     setState(thisState);
   };
@@ -186,53 +185,63 @@ function App() {
   };
 
   return (
-    <div className="main">
-      <div className="form">
-        <Header />
-        <div className="input-header">General Information</div>
-        <General change={generalChanges} general={state.general} />
-        <div className="input-header">Education Information</div>
-        <Education
-          change={eduChanges}
-          university={state.university}
-          add={add}
-        />
-        <div className="input-header">Experience Information</div>
-        <Experience
-          change={expChanges}
-          experience={state.experience}
-          add={add}
-        />
-        <div className="input-header">More Information</div>
-        <More
-          change={moreChanges}
-          awards={state.awards}
-          skills={state.skills}
-        />
-        <Preview state={state} />
+    <main>
+      <Header />
+      <div className="content">
+        <div className="form">
+          <div>
+            <div className="input-header">General Information</div>
+            <General change={generalChanges} general={state.general} />
+          </div>
+          <div>
+            <div className="input-header">Education Information</div>
+            <Education
+              change={eduChanges}
+              university={state.university}
+              add={add}
+            />
+          </div>
+          <div>
+            <div className="input-header">Experience Information</div>
+            <Experience
+              change={expChanges}
+              experience={state.experience}
+              add={add}
+            />
+          </div>
+          <div>
+            <div className="input-header">More Information</div>
+            <More
+              change={moreChanges}
+              awards={state.awards}
+              skills={state.skills}
+            />
+            <Preview state={state} />
+          </div>
+        </div>
+        <div className="overview">
+          <EducationOverview
+            education={state.education}
+            edit={editEdu}
+            remove={remove}
+          />
+          <ExperienceOverview
+            experiences={state.experiences}
+            edit={editExp}
+            remove={remove}
+          />
+          <button
+            type="button"
+            className="preview-button"
+            onClick={() => {
+              document.getElementById("preview").style.display = "block";
+            }}
+          >
+            Preview
+          </button>
+        </div>
       </div>
-      <div className="overview">
-        <EducationOverview
-          education={state.education}
-          edit={editEdu}
-          remove={remove}
-        />
-        <ExperienceOverview
-          experiences={state.experiences}
-          edit={editExp}
-          remove={remove}
-        />
-        <button
-          type="button"
-          className="preview-button"
-          onClick={() => {
-            document.getElementById("preview").style.display = "block";
-          }}
-        >
-          Preview
-        </button>
-      </div>
-    </div>
+    </main>
   );
 }
 
