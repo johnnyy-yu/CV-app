@@ -7,14 +7,27 @@ function Header(props) {
 
   return (
     <header>
-      <img src={documentIcon} alt="" />
-      Curriculum Vitae App
+      <div>
+        <img src={documentIcon} alt="" />
+        Curriculum Vitae App
+      </div>
       {backButton && (
-        <Link to="/react-gh-pages">
-          <button type="button" id="go-back-button">
-            Go Back
+        <div>
+          <button
+            type="button"
+            className="print-button"
+            onClick={() => {
+              window.print();
+            }}
+          >
+            Print
           </button>
-        </Link>
+          <Link to="/react-gh-pages">
+            <button type="button" id="go-back-button">
+              Go Back
+            </button>
+          </Link>
+        </div>
       )}
     </header>
   );

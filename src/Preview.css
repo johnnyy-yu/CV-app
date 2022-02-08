@@ -1,4 +1,4 @@
-#go-back-button {
+.print-button, #go-back-button {
   display: block;
   background-color: black;
   color: white;
@@ -121,4 +121,15 @@ header a {
 .time {
   font-weight: 400;
   color: #2f4e8b
+}
+
+/* media Query */
+@media print {
+  body {
+    -webkit-print-color-adjust: exact !important;
+  }
+  
+  header {
+    display: none;
+  }
 }

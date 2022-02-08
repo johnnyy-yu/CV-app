@@ -16,6 +16,13 @@ header {
   box-shadow: 1px 1px 10px silver;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+header div {
+  display: flex;
+  align-items: center;
   gap: 10px;
 }
 
@@ -36,9 +43,9 @@ input {
 }
 
 .content {
-  word-wrap: break-word;
   display: grid;
   grid-template-columns: minmax(500px, 4fr) minmax(300px, 1fr);
+  overflow: auto;
 }
 
 .form {
@@ -176,4 +183,21 @@ li {
   padding:  6px 28px;
   margin-bottom: 20px;
   cursor: pointer;
+}
+
+/* media Queries */
+
+@media (max-width: 400px) {
+  html {
+    overflow: unset;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .form {
+    overflow: unset;
+    height: unset;
+  }
 }
