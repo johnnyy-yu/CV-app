@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.4b26692c.css",
-    "main.js": "/react-gh-pages/static/js/main.d445a5ea.js",
-    "static/media/zero-take-RAFkkUTvp6c-unsplash.jpg": "/react-gh-pages/static/media/zero-take-RAFkkUTvp6c-unsplash.04b329ac851bb2cde950.jpg",
+    "main.css": "/react-gh-pages/static/css/main.6ddc52c4.css",
+    "main.js": "/react-gh-pages/static/js/main.4d975f23.js",
+    "static/media/documentIcon.png": "/react-gh-pages/static/media/documentIcon.4fada742a122a6342a94.png",
     "index.html": "/react-gh-pages/index.html",
-    "main.4b26692c.css.map": "/react-gh-pages/static/css/main.4b26692c.css.map",
-    "main.d445a5ea.js.map": "/react-gh-pages/static/js/main.d445a5ea.js.map"
+    "main.6ddc52c4.css.map": "/react-gh-pages/static/css/main.6ddc52c4.css.map",
+    "main.4d975f23.js.map": "/react-gh-pages/static/js/main.4d975f23.js.map"
   },
   "entrypoints": [
-    "static/css/main.4b26692c.css",
-    "static/js/main.d445a5ea.js"
+    "static/css/main.6ddc52c4.css",
+    "static/js/main.4d975f23.js"
   ]
 }
