@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import uniqid from "uniqid";
+import { Link, Routes, Route } from "react-router-dom";
 
 import "./App.css";
-import "./Preview.css";
 
 import Header from "./components/Header";
 import General from "./components/General";
@@ -13,40 +13,8 @@ import More from "./components/More";
 import EducationOverview from "./components/EducationOverview";
 import ExperienceOverview from "./components/ExperienceOverview";
 
-function App() {
-  const [state, setState] = useState({
-    general: {
-      name: { firstName: "", lastName: "" },
-      address: "",
-      phone: "",
-      email: "",
-      linkedin: "",
-      intro: "",
-    },
-
-    education: [],
-    university: {
-      id: uniqid(),
-      university: "",
-      eduLocation: "",
-      degree: "",
-      graduation: "",
-    },
-    experiences: [],
-    experience: {
-      id: uniqid(),
-      company: "",
-      location: "",
-      role: "",
-      description: "",
-      time: {
-        from: "",
-        to: "",
-      },
-    },
-    awards: "",
-    skills: "",
-  });
+function App(props) {
+  const { state, setState, headerBack } = props;
 
   const generalChanges = (e) => {
     const thisState = { ...state };
@@ -216,7 +184,6 @@ function App() {
               awards={state.awards}
               skills={state.skills}
             />
-            <Preview state={state} />
           </div>
         </div>
         <div className="overview">
@@ -230,15 +197,11 @@ function App() {
             edit={editExp}
             remove={remove}
           />
-          <button
-            type="button"
-            className="preview-button"
-            onClick={() => {
-              document.getElementById("preview").style.display = "block";
-            }}
-          >
-            Preview
-          </button>
+          <Link to="preview">
+            <button type="button" className="preview-button">
+              Preview
+            </button>
+          </Link>
         </div>
       </div>
     </main>

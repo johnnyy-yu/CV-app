@@ -1,6 +1,20 @@
+#go-back-button {
+  display: block;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 1px 12px
+}
+
+header a {
+  margin-left: auto;
+  text-decoration: none;
+}
 
 #preview {
-  display: none;
   position: fixed;
   left: 0;
   top: 0;
