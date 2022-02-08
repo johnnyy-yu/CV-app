@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.6ddc52c4.css",
-    "main.js": "/react-gh-pages/static/js/main.4d975f23.js",
-    "static/media/documentIcon.png": "/react-gh-pages/static/media/documentIcon.4fada742a122a6342a94.png",
-    "index.html": "/react-gh-pages/index.html",
-    "main.6ddc52c4.css.map": "/react-gh-pages/static/css/main.6ddc52c4.css.map",
-    "main.4d975f23.js.map": "/react-gh-pages/static/js/main.4d975f23.js.map"
+    "main.css": "/CV-app/static/css/main.6ddc52c4.css",
+    "main.js": "/CV-app/static/js/main.089a3cd9.js",
+    "static/media/documentIcon.png": "/CV-app/static/media/documentIcon.4fada742a122a6342a94.png",
+    "index.html": "/CV-app/index.html",
+    "main.6ddc52c4.css.map": "/CV-app/static/css/main.6ddc52c4.css.map",
+    "main.089a3cd9.js.map": "/CV-app/static/js/main.089a3cd9.js.map"
   },
   "entrypoints": [
     "static/css/main.6ddc52c4.css",
-    "static/js/main.4d975f23.js"
+    "static/js/main.089a3cd9.js"
   ]
 }
