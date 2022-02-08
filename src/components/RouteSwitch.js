@@ -43,13 +43,10 @@ function RouteSwitch() {
     <BrowserRouter>
       <Routes>
         <Route
-          path="/react-gh-pages"
+          path="/CV-app/"
           element={<App state={state} setState={setState} />}
         />
-        <Route
-          path="/react-gh-pages/preview"
-          element={<Preview state={state} />}
-        />
+        <Route path="/CV-app/preview" element={<Preview state={state} />} />
       </Routes>
     </BrowserRouter>
   );

@@ -22,7 +22,7 @@ function Header(props) {
           >
             Print
           </button>
-          <Link to="/react-gh-pages">
+          <Link to="/cv-app">
             <button type="button" id="go-back-button">
               Go Back
             </button>

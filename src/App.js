@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import uniqid from "uniqid";
-import { Link, Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./App.css";
 
 import Header from "./components/Header";
 import General from "./components/General";
-import Preview from "./components/Preview";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import More from "./components/More";
@@ -14,7 +13,7 @@ import EducationOverview from "./components/EducationOverview";
 import ExperienceOverview from "./components/ExperienceOverview";
 
 function App(props) {
-  const { state, setState, headerBack } = props;
+  const { state, setState } = props;
 
   const generalChanges = (e) => {
     const thisState = { ...state };
